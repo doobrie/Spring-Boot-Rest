@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title>Gym Timetable</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+    <body>
+    <h1 th:text="#{title.timetableevents}">Timetable of Events</h1>
+    <table>
+      <tr>
+        <th th:text="#{timetable.header.class}">CLASS</th>
+        <th th:text="#{timetable.header.day}">DAY</th>
+        <th th:text="#{timetable.header.startTime}">START TIME</th>
+        <th th:text="#{timetable.header.endTime}">END TIME</th>
+      </tr>
+      <tr th:each="gymClass : ${timetable.classes}">
+        <td th:text="${gymClass.title}">A class</td>
+        <td th:text="${gymClass.day} != null ? #{day__${gymClass.day}__} : ''">day</td>
+        <td th:text="${gymClass.startTime}">start</td>
+        <td th:text="${gymClass.endTime}">end</td>
+      </tr>
+    </table>
+    <a href="/createClass" th:href="@{/class}" th:text="#{link.createNewClass}">create</a>
+    </body>
+</html>

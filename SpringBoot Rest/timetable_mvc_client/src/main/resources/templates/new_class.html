@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title>New Class</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+    <body>
+    <h1 th:text="#{title.createNewClass}">New Class</h1>
+    <form id="new-class-form" role="form" th:action="@{/class}" method="post" th:object="${TimetableClass}">
+        <label for="title" th:text="#{newclass.title}">title</label>
+        <input type="text" id="title" name="title" value=""/>
+        <label for="day" th:text="#{newclass.day}">day</label> 
+        <select name="day">
+            <option value="1" th:text="#{day1}">Mon</option>
+            <option value="2" th:text="#{day2}">Tue</option>
+            <option value="3" th:text="#{day3}">Wed</option>
+            <option value="4" th:text="#{day4}">Thu</option>
+            <option value="5" th:text="#{day5}">Fri</option>
+            <option value="6" th:text="#{day6}">Sat</option>
+            <option value="7" th:text="#{day7}">Sun</option>
+        </select>
+        <label for="startTime" th:text="#{newclass.startTime}">startTime</label>
+        <input type="text" id="startTime" name="startTime" value=""/>
+        <label for="endTime" th:text="#{newclass.endTime}">startTime</label>
+        <input type="text" id="endTime" name="endTime" value=""/>
+        <div>
+            <button type="submit">Save</button>
+        </div>
+    </form> 
+    <a href="/timetable" th:href="@{/timetable}" th:text="#{link.fullTimetable}">back</a>
+    </body>
+</html>
